@@ -68,6 +68,14 @@ const Auth = () => {
         <div className={styles.square}></div>
         <div className={styles.container}>
           <div className={styles.form}>
+            <h3
+              style={{
+                textAlign: 'center',
+                fontSize: '1.8rem',
+                paddingBottom: '2rem',
+              }}>
+              Latte Locator ☕
+            </h3>
             <h2>{isSignup ? 'Signup Form' : 'Login Form'}</h2>
             <form>
               {isSignup && (

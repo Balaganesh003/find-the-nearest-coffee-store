@@ -9,14 +9,21 @@ import {
 
 import app from '../utils/firebase';
 import { useRouter } from 'next/router';
+import { authActions } from '../store/auth-slice';
+import { useDispatch } from 'react-redux';
 
 const Auth = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const firebaseAuth = getAuth(app);
+
+  const setUser = (user) => {
+    dispatch(authActions.setUser(user));
+  };
 
   const signUpWithEmail = async (e) => {
     e.preventDefault();
@@ -25,6 +32,7 @@ const Auth = () => {
         user: { providerData },
       } = await createUserWithEmailAndPassword(firebaseAuth, email, password);
       await updateProfile(firebaseAuth.currentUser, { displayName: username });
+      setUser(providerData[0]);
       setEmail('');
       setPassword('');
       setUsername('');
@@ -43,7 +51,7 @@ const Auth = () => {
       } = await signInWithEmailAndPassword(firebaseAuth, email, password);
       setEmail('');
       setPassword('');
-
+      setUser(providerData[0]);
       router.push('/');
     } catch (error) {
       console.log(error);

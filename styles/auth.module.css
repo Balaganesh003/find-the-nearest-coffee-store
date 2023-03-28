@@ -4,8 +4,7 @@
   align-items: center;
   overflow: hidden !important;
   justify-content: center;
-  /* background: linear-gradient(to bottom, #f7f7fe, #dff1ff); */
-  background: linear-gradient(to bottom, #aaaafa, #4586b9);
+  background: linear-gradient(to bottom, #f7f7fe, #dff1ff);
 }
 
 .section .colour {

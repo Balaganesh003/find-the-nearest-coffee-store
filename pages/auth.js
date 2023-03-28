@@ -60,9 +60,6 @@ const Auth = () => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.colour}></div>
-      <div className={styles.colour}></div>
-      <div className={styles.colour}></div>
       <div className={styles.box}>
         <div className={styles.square}></div>
         <div className={styles.square}></div>
